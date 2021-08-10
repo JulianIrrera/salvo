@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 @Entity
@@ -64,4 +66,5 @@ public class GamePlayer {
         public void setGameID(Game gameID) {
             this.gameID = gameID;
         }
+
 }

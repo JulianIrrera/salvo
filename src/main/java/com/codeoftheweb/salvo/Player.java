@@ -62,8 +62,11 @@ public class Player{
             gamePlayers.add(gamePlayer);
         }
 
+    public Long getId() {return id;}
 
-        @JsonIgnore
+    public void setId(Long id) {this.id = id;}
+
+    @JsonIgnore
         public List<Game> getGames() {
             return gamePlayers.stream().map(sub -> sub.getGameID()).collect(toList());
         }

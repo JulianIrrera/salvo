@@ -34,7 +34,11 @@ public class Game {
 
     public Game() {}
 
-        public Game(Date creationDate) {
+    public Long getId() {return id;}
+
+    public void setId(Long id) {this.id = id;}
+
+    public Game(Date creationDate) {
             this.creationDate = creationDate;
         }
 
@@ -65,8 +69,16 @@ public class Game {
         }
 
 
-        @JsonIgnore
+        //@JsonIgnore
         public List<Player> getPlayers() {
             return gamePlayers.stream().map(sub -> sub.getPlayerID()).collect(toList());
         }
+
+    public Set<GamePlayer> getGamePlayers() {
+        return gamePlayers;
+    }
+
+    public void setGamePlayers(Set<GamePlayer> gamePlayers) {
+        this.gamePlayers = gamePlayers;
+    }
 }

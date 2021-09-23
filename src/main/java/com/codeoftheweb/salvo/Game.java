@@ -28,8 +28,13 @@ public class Game {
     private Long id;
     private Date creationDate;
 
+    //OtM gamePlayer
     @OneToMany(mappedBy= "gameID", fetch=FetchType.EAGER)
     Set<GamePlayer> gamePlayers = new HashSet<>();
+
+    //OtM score
+    @OneToMany(mappedBy = "gameID", fetch = FetchType.EAGER)
+    Set<Score> score= new HashSet<>();
 
 
     public Game() {}
@@ -68,11 +73,11 @@ public class Game {
             gamePlayers.add(gamePlayer);
         }
 
-
         //@JsonIgnore
         public List<Player> getPlayers() {
             return gamePlayers.stream().map(sub -> sub.getPlayerID()).collect(toList());
         }
+
 
     public Set<GamePlayer> getGamePlayers() {
         return gamePlayers;
@@ -81,4 +86,17 @@ public class Game {
     public void setGamePlayers(Set<GamePlayer> gamePlayers) {
         this.gamePlayers = gamePlayers;
     }
+
+    public Set<Score> getScore() {
+        return score;
+    }
+
+    public void setScore(Set<Score> score) {
+        this.score = score;
+    }
+
+
+
 }
+
+
